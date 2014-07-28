@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
+    <modules jcr:primaryType="jnt:modules">
+        <ep-rfn-template-set j:dependencies="bootstrap3-components bootstrap3-core default default-skins ep-rfn-content ep-rfn-event ep-rfn-faq ep-rfn-navigation ep-rfn-news ep-rfn-search search skins"
+                           j:installedModules="ep-rfn-template-set"
+                           j:modulePriority="0"
+                           j:moduleType="templatesSet"
+                           j:title="EP RFN Template Set"
+                           jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                           jcr:primaryType="jnt:module">
+
+            <portlets jcr:primaryType="jnt:portletFolder"/>
+            <files jcr:primaryType="jnt:folder"/>
+            <contents jcr:primaryType="jnt:contentFolder"/>
+            <templates jcr:primaryType="jnt:templatesFolder">
+                <files jcr:primaryType="jnt:folder">
+                    <themes jcr:primaryType="jnt:folder">
+                            <default jcr:primaryType="jnt:folder"/>
+                    </themes>
+                </files>
+                <contents jcr:primaryType="jnt:contentFolder"/>
+                    <base j:theme="/modules/ep-rfn-template-set/templates/files/themes/default"
+                  j:view="ep-rfn-template-set"
+                  jcr:mixinTypes="jmix:theme"
+                  jcr:primaryType="jnt:template">
+                        <home jcr:primaryType="jnt:pageTemplate">
+                            <content-area jcr:primaryType="jnt:contentList">
+                                <row-content1 activeContainer="false"
+                                   columnsType="customColumns"
+                                   gridClasses="col-xs-4 col-sm-4 col-md-3 col-lg-3,col-xs-8 col-sm-8 col-md-9 col-lg-10,col-xs-4 col-sm-4 col-md-4 col-lg-3"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                   jcr:primaryType="bootstrap3nt:columns"
+                                   sectionCssClass="row"
+                                   sectionElement="div">
+                                    <row-content1-col0 jcr:primaryType="jnt:contentList">
+                                        <left-menu depth="1"
+                                      jcr:primaryType="rfnnt:epRfnMenu"
+                                      startNode="/modules/ep-rfn-template-set/home"/>
+                                    </row-content1-col0>
+                                    <row-content1-col2 jcr:primaryType="jnt:contentList">
+                                        <content-right-column-area j:allowedTypes="rfnnt:epRfnEventSearchForm rfnnt:epRfnImageLink"
+                                                      jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-content1-col2>
+                                    <row-content1-col1 jcr:primaryType="jnt:contentList">
+                                        <content-banner-area j:numberOfItems="1" jcr:primaryType="jnt:area"/>
+                                        <parliamentary-news j:classname="home-news"
+                                               j:skin="skins.custom"
+                                               jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                               jcr:primaryType="jnt:contentList">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:mixinTypes="mix:title"
+                                                jcr:primaryType="jnt:translation"
+                                                jcr:title="Parliamentary news"/>
+                                            <parliamentary-title-area j:allowedTypes="rfnnt:epRfnTitle"
+                                                        j:numberOfItems="1"
+                                                        jcr:primaryType="jnt:absoluteArea"/>
+                                            <parliamentary-left-news j:view="homeLeft"
+                                                       jcr:mixinTypes="jmix:renderable"
+                                                       jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                            <parliamentary-right-news j:view="homeRight"
+                                                        jcr:mixinTypes="jmix:renderable"
+                                                        jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                            <more-parliamentary-news j:view="moreNews"
+                                                       jcr:mixinTypes="jmix:renderable"
+                                                       jcr:primaryType="rfnnt:epRfnLink">
+                                                <j:translation_en jcr:language="en"
+                                                   jcr:mixinTypes="mix:title"
+                                                   jcr:primaryType="jnt:translation"
+                                                   jcr:title="More parliamentary news"/>
+                                            </more-parliamentary-news>
+                                        </parliamentary-news>
+                                        <administrative-news j:classname="home-news"
+                                                 j:skin="skins.custom"
+                                                 jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                 jcr:primaryType="jnt:contentList">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:mixinTypes="mix:title"
+                                                jcr:primaryType="jnt:translation"
+                                                jcr:title="Administrative news"/>
+                                            <administrative-title-area j:allowedTypes="rfnnt:epRfnTitle"
+                                                         j:numberOfItems="1"
+                                                         jcr:primaryType="jnt:absoluteArea"/>
+                                            <ep-rfn-administrative-tab jcr:primaryType="rfnnt:epRfnAdministrativeTab"/>
+                                            <administrative-news-tabs j:classname="tab-content"
+                                                        j:skin="skins.custom"
+                                                        jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                        jcr:primaryType="jnt:contentList">
+                                                <administrative-news-members j:classname="tab-pane active"
+                                                              j:id="members"
+                                                              j:skin="skins.custom"
+                                                              jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                              jcr:primaryType="jnt:contentList">
+                                                    <admin-members-left-news j:view="homeLeft"
+                                                                      jcr:mixinTypes="jmix:renderable"
+                                                                      jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                                    <admin-members-right-news j:view="homeRight"
+                                                              jcr:mixinTypes="jmix:renderable"
+                                                              jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                                    <more-admin-members-news j:view="moreNews"
+                                                                      jcr:mixinTypes="jmix:renderable"
+                                                                      jcr:primaryType="rfnnt:epRfnLink">
+                                                        <j:translation_en jcr:language="en"
+                                                         jcr:mixinTypes="mix:title"
+                                                         jcr:primaryType="jnt:translation"
+                                                         jcr:title="More administrative members news"/>
+                                                    </more-admin-members-news>
+                                                </administrative-news-members>
+                                                <administrative-news-officials j:classname="tab-pane"
+                                                                j:id="officials"
+                                                                j:skin="skins.custom"
+                                                                jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                                jcr:primaryType="jnt:contentList">
+                                                    <admin-officials-left-news j:view="homeLeft"
+                                                               jcr:mixinTypes="jmix:renderable"
+                                                               jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                                    <admin-officials-right-news j:view="homeRight"
+                                                                jcr:mixinTypes="jmix:renderable"
+                                                                jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                                    <more-admin-officials-news j:view="moreNews"
+                                                               jcr:mixinTypes="jmix:renderable"
+                                                               jcr:primaryType="rfnnt:epRfnLink">
+                                                        <j:translation_en jcr:language="en"
+                                                         jcr:mixinTypes="mix:title"
+                                                         jcr:primaryType="jnt:translation"
+                                                         jcr:title="More administrative officials news"/>
+                                                    </more-admin-officials-news>
+                                                </administrative-news-officials>
+                                            </administrative-news-tabs>
+                                        </administrative-news>
+                                        <practical-news j:classname="home-news"
+                                                  j:skin="skins.custom"
+                                                  jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                  jcr:primaryType="jnt:contentList">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:mixinTypes="mix:title"
+                                                jcr:primaryType="jnt:translation"
+                                                jcr:title="Practical news"/>
+                                            <practical-title-area j:allowedTypes="rfnnt:epRfnTitle"
+                                                    j:numberOfItems="1"
+                                                    jcr:primaryType="jnt:absoluteArea"/>
+                                            <practical-left-news j:view="homeLeft"
+                                                   jcr:mixinTypes="jmix:renderable"
+                                                   jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                            <practical-right-news j:view="homeRight"
+                                                    jcr:mixinTypes="jmix:renderable"
+                                                    jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
+                                            <more-practical-news j:view="moreNews"
+                                                   jcr:mixinTypes="jmix:renderable"
+                                                   jcr:primaryType="rfnnt:epRfnLink">
+                                                <j:translation_en jcr:language="en"
+                                                   jcr:mixinTypes="mix:title"
+                                                   jcr:primaryType="jnt:translation"
+                                                   jcr:title="More practical news"/>
+                                            </more-practical-news>
+                                        </practical-news>
+                                    </row-content1-col1>
+                                </row-content1>
+                            </content-area>
+                            <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Home"/>
+                        </home>
+                        <pagecontent j:classname="container"
+                            j:skin="skins.custom"
+                            jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                            jcr:primaryType="jnt:contentList">
+                            <header j:classname="header"
+                          j:skin="skins.custom"
+                          jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                          jcr:primaryType="jnt:contentList">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Header"/>
+                                <row-header1 activeContainer="false"
+                                 columnsType="customColumns"
+                                 gridClasses="col-xs-5 col-sm-5 col-md-5 col-lg-5,col-xs-6 col-sm-6 col-md-6 col-lg-6,col-xs-5 col-sm-5 col-md-5 col-lg-5"
+                                 gridLayout="fixed-width"
+                                  jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                 jcr:primaryType="bootstrap3nt:columns"
+                                  sectionCssClass="row header1"
+                                  sectionElement="div">
+                                    <row-header1-col0 jcr:primaryType="jnt:contentList">
+                                        <header-logo-area j:allowedTypes="jnt:nodeLinkImageReference"
+                                             j:numberOfItems="1"
+                                             jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-header1-col0>
+                                    <row-header1-col1 jcr:primaryType="jnt:contentList">
+                                        <header-image-area j:allowedTypes="jnt:absoluteArea jnt:imageReference"
+                                              j:id="banner-header"
+                                              j:numberOfItems="1"
+                                              j:skin="skins.custom"
+                                              jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                              jcr:primaryType="jnt:area"/>
+                                    </row-header1-col1>
+                                    <row-header1-col2 jcr:primaryType="jnt:contentList">
+                                        <header-links-area j:id="tools-header"
+                                              j:numberOfItems="1"
+                                              j:skin="skins.custom"
+                                              jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                              jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-header1-col2>
+                                </row-header1>
+                                <row-header2 activeContainer="false"
+                                  columnsType="customColumns"
+                                  gridClasses="col-xs-4 col-sm-4 col-md-4 col-lg-4,col-xs-8 col-sm-8 col-md-8 col-lg-8,col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right"
+                                  gridLayout="fixed-width"
+                                  jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                  jcr:primaryType="bootstrap3nt:columns"
+                                  sectionCssClass="row header2"
+                                  sectionElement="div">
+                                    <row-header2-col2 jcr:primaryType="jnt:contentList">
+                                        <language-switcher jcr:primaryType="jnt:languageSwitcher"
+                                              typeOfDisplay="isoLocaleCountryCode"/>
+                                    </row-header2-col2>
+                                    <row-header2-col1 jcr:primaryType="jnt:contentList">
+                                        <header-alert-area j:allowedTypes="jnt:text"
+                                              j:numberOfItems="1"
+                                              jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-header2-col1>
+                                    <row-header2-col0 jcr:primaryType="jnt:contentList"/>
+                                </row-header2>
+                                <row-header3 activeContainer="false"
+                                  columnsType="customColumns"
+                                  gridClasses="col-xs-16 col-sm-16 col-md-16 col-lg-16"
+                                  gridLayout="fixed-width"
+                                  jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                  jcr:primaryType="bootstrap3nt:columns"
+                                  sectionCssClass="row header3"
+                                  sectionElement="div">
+                                    <row-header3-col0 jcr:primaryType="jnt:contentList">
+                                        <top-navigation-menu jcr:primaryType="rfnnt:epRfnTopNavigationMenu">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:mixinTypes="mix:title"
+                                                jcr:primaryType="jnt:translation"
+                                                jcr:title="Top navigation menu"/>
+                                        </top-navigation-menu>
+                                    </row-header3-col0>
+                                </row-header3>
+                            </header>
+                            <content jcr:primaryType="jnt:contentList">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Content"/>
+                                <content-area jcr:primaryType="jnt:area"/>
+                            </content>
+                            <footer jcr:primaryType="jnt:contentList">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Footer"/>
+                                <row-footer1 activeContainer="false"
+                                  columnsType="customColumns"
+                                  gridClasses="col-xs-16 col-sm-16 col-md-7 col-lg-7, col-xs-16 col-sm-16 col-md-9 col-lg-9 text-right"
+                                  gridLayout="fixed-width"
+                                  jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                  jcr:primaryType="bootstrap3nt:columns"
+                                  sectionCssClass="row footer"
+                                  sectionElement="div">
+                                    <row-footer1-col0 jcr:primaryType="jnt:contentList">
+                                        <footer-copyright-area j:allowedTypes="jnt:text"
+                                                  j:classname="copyright"
+                                                  j:numberOfItems="1"
+                                                  j:skin="skins.custom"
+                                                  jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                  jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-footer1-col0>
+                                    <row-footer1-col1 jcr:primaryType="jnt:contentList">
+                                        <footer-links-area jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-footer1-col1>
+                                </row-footer1>
+                            </footer>
+                        </pagecontent>
+                        <generic j:hiddenTemplate="false" jcr:primaryType="jnt:template">
+                            <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Content generic"/>
+                            <content-area jcr:primaryType="jnt:contentList">
+                                <row-content1 activeContainer="false"
+                                   columnsType="customColumns"
+                                   gridClasses="col-xs-16 col-sm-16 col-md-16 col-lg-16"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                   jcr:primaryType="bootstrap3nt:columns"
+                                   sectionCssClass="row"
+                                   sectionElement="div">
+                                    <row-content1-col0 jcr:primaryType="jnt:contentList">
+                                        <top-breadcrumb jcr:primaryType="rfnnt:epRfnBreadcrumb">
+                                            <j:translation_en currentNode="/modules/ep-rfn-template-set/home"
+                                                jcr:language="en"
+                                                jcr:primaryType="jnt:translation"/>
+                                        </top-breadcrumb>
+                                    </row-content1-col0>
+                                </row-content1>
+                                <row-content2 activeContainer="false"
+                                       columnsType="customColumns"
+                                       gridClasses="col-xs-4 col-sm-4 col-md-3 col-lg-3,col-xs-12 col-sm-12 col-md-13 col-lg-13"
+                                       gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                       jcr:primaryType="bootstrap3nt:columns"
+                                   sectionCssClass="row content-container"
+                                       sectionElement="div">
+                                    <section--columns-col0 jcr:primaryType="jnt:contentList"/>
+                                    <row-content2-col1 jcr:primaryType="jnt:contentList">
+                                        <content-title-area j:allowedTypes="rfnnt:epRfnTitle"
+                                               j:classname="page-title"
+                                               j:numberOfItems="1"
+                                               j:skin="skins.custom"
+                                               jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                               jcr:primaryType="jnt:area"/>
+                                        <content-area j:classname="content"
+                                         j:skin="skins.custom"
+                                         jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                         jcr:primaryType="jnt:area"/>
+                                        <content-opinio-area j:classname="opinio-survey"
+                                                j:numberOfItems="1"
+                                                j:skin="skins.custom"
+                                                jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                                jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-content2-col1>
+                                    <row-content2-col0 jcr:primaryType="jnt:contentList">
+                                        <left-menu depth="1"
+                                      jcr:primaryType="rfnnt:epRfnMenu"
+                                      startNode="/modules/ep-rfn-template-set/home"/>
+                                    </row-content2-col0>
+                                </row-content2>
+                            </content-area>
+                            <rubric j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Rubric"/>
+                                <header-image-area jcr:primaryType="jnt:contentList">
+                                    <header-rubric-img-area j:allowedTypes="jnt:imageReference"
+                                                j:numberOfItems="1"
+                                                jcr:primaryType="jnt:absoluteArea"/>
+                                </header-image-area>
+                                <section j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="Section"/>
+                                </section>
+                                <subject j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="Subject"/>
+                                </subject>
+                                <theme j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="Theme"/>
+                                </theme>
+                                <event-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="Event List"/>
+                                </event-list>
+                                <news-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                    <j:translation_en jcr:language="en"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="News List"/>
+                                </news-list>
+                            </rubric>
+                            <sitemap j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Sitemap"/>
+                            </sitemap>
+                        </generic>
+                        <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
+                                 jcr:primaryType="jnt:translation"
+                                 jcr:title="Master template"/>
+                        <faq-generic j:hiddenTemplate="false" jcr:primaryType="jnt:template">
+                            <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="FAQ generic"/>
+                            <faq-home j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="FAQ Home"/>
+                                <row-content2-col0 jcr:primaryType="jnt:contentList"/>
+                                <faq-content-area jcr:primaryType="jnt:contentList">
+                                    <dotted-line jcr:primaryType="jnt:text">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             text="&lt;hr class=&#34;dotted&#34;&gt;"/>
+                                    </dotted-line>
+                                    <faq-search-help-panel-area j:allowedTypes="rfnnt:epRfnFaqSearchHelpPanel"
+                                                    j:numberOfItems="1"
+                                                    jcr:primaryType="jnt:area"/>
+                                </faq-content-area>
+                                <header-image-area jcr:primaryType="jnt:contentList"/>
+                            </faq-home>
+                            <faq-category-search j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="FAQ Category Search"/>
+                            </faq-category-search>
+                            <faq-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="FAQ List"/>
+                            </faq-list>
+                            <content-area jcr:primaryType="jnt:contentList">
+                                <row-content1 activeContainer="false"
+                                   columnsType="customColumns"
+                                   gridClasses="col-xs-16 col-sm-16 col-md-16 col-lg-16"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                   jcr:primaryType="bootstrap3nt:columns"
+                                   sectionCssClass="row"
+                                   sectionElement="div">
+                                    <row-content1-col0 jcr:primaryType="jnt:contentList">
+                                        <top-breadcrumb jcr:primaryType="rfnnt:epRfnBreadcrumb">
+                                            <j:translation_en currentNode="/modules/ep-rfn-template-set/home"
+                                                jcr:language="en"
+                                                jcr:primaryType="jnt:translation"/>
+                                        </top-breadcrumb>
+                                    </row-content1-col0>
+                                </row-content1>
+                                <row-content2 activeContainer="false"
+                                   columnsType="customColumns"
+                                   gridClasses="col-xs-16 col-sm-16 col-md-16 col-lg-16"
+                                   gridLayout="fixed-width"
+                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                   jcr:primaryType="bootstrap3nt:columns"
+                                   sectionCssClass="row content-container"
+                                   sectionElement="div">
+                                    <row-content2-col0 jcr:primaryType="jnt:contentList">
+                                        <faq-title-area j:allowedTypes="rfnnt:epRfnTitle"
+                                           j:numberOfItems="1"
+                                           jcr:primaryType="jnt:absoluteArea"/>
+                                        <faq-content j:classname="content"
+                                        j:skin="skins.custom"
+                                        jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                        jcr:primaryType="jnt:contentList">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:mixinTypes="mix:title"
+                                                jcr:primaryType="jnt:translation"
+                                                jcr:title="FAQ Content"/>
+                                                <row-content1 activeContainer="false"
+                                               columnsType="customColumns"
+                                               gridClasses="border-right col-xs-12 col-sm-12 col-md-12 col-lg-12, col-xs-4 col-sm-4 col-md-4 col-lg-4"
+                                               gridLayout="fixed-width"
+                                               jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
+                                               jcr:primaryType="bootstrap3nt:columns"
+                                               sectionCssClass="row"
+                                            sectionElement="div">
+                                                <row-content1-col1 jcr:primaryType="jnt:contentList">
+                                                    <faq-sidebar-area j:numberOfItems="1" jcr:primaryType="jnt:absoluteArea"/>
+                                                </row-content1-col1>
+                                                <row-content1-col0 jcr:primaryType="jnt:contentList">
+                                                    <ep-rfn-faq-search-tab jcr:primaryType="rfnnt:epRfnFaqSearchTab"/>
+                                                    <faq-content-area j:allowedTypes="" jcr:primaryType="jnt:area"/>
+                                                </row-content1-col0>
+                                            </row-content1>
+                                            <faq-bottom-infos-area j:numberOfItems="1" jcr:primaryType="jnt:area"/>
+                                        </faq-content>
+                                        <faq-opinio-survey j:numberOfItems="1" jcr:primaryType="jnt:absoluteArea"/>
+                                    </row-content2-col0>
+                                </row-content2>
+                            </content-area>
+                            <header-image-area jcr:primaryType="jnt:contentList">
+                                <header-img-area j:allowedTypes="jnt:imageReference"
+                                      j:numberOfItems="1"
+                                      jcr:primaryType="jnt:absoluteArea"/>
+                            </header-image-area>
+                        </faq-generic>
+                </base>
+                    <content-template j:applyOn="jnt:content"
+                              j:hiddenTemplate="true"
+                              j:priority="1"
+                              j:view="ep-rfn-template-set"
+                              jcr:primaryType="jnt:contentTemplate">
+                    <pagecontent jcr:primaryType="jnt:contentList">
+                            <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+                    </pagecontent>
+                </content-template>
+            </templates>
+                
+                <home j:isHomePage="true"
+               j:templateName="home"
+               jcr:primaryType="jnt:page">
+                    <j:translation_en jcr:language="en"
+                              jcr:mixinTypes="mix:title"
+                              jcr:primaryType="jnt:translation"
+                              jcr:title="Home"/>
+                </home>
+        </ep-rfn-template-set>
+    </modules>
+</content>
