@@ -85,8 +85,8 @@
   <name>EP RFN Template Set</name>
   <description>This is the custom profile module (EP RFN Template Set) for running on a Digital Factory server.</description>
   <scm>
-    <connection>scm:dummy:uri</connection>
-    <developerConnection>scm:dummy:uri</developerConnection>
+    <connection>scm:git:git@github.com:odambrosio/ep-rfn-template-set.git</connection>
+    <developerConnection>scm:git:git@github.com:odambrosio/ep-rfn-template-set.git</developerConnection>
   </scm>
   <repositories>
     <repository>
