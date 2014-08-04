@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <ep-rfn-template-set j:dependencies="bootstrap3-components bootstrap3-core default default-skins ep-rfn-content ep-rfn-event ep-rfn-faq ep-rfn-navigation ep-rfn-news ep-rfn-search search skins"
+        <ep-rfn-template-set j:dependencies="bootstrap3-components bootstrap3-core default default-skins ep-rfn-content ep-rfn-navigation search skins"
                            j:installedModules="ep-rfn-template-set"
                            j:modulePriority="0"
                            j:moduleType="templatesSet"
@@ -55,12 +55,6 @@
                                             <parliamentary-title-area j:allowedTypes="rfnnt:epRfnTitle"
                                                         j:numberOfItems="1"
                                                         jcr:primaryType="jnt:absoluteArea"/>
-                                            <parliamentary-left-news j:view="homeLeft"
-                                                       jcr:mixinTypes="jmix:renderable"
-                                                       jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
-                                            <parliamentary-right-news j:view="homeRight"
-                                                        jcr:mixinTypes="jmix:renderable"
-                                                        jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
                                             <more-parliamentary-news j:view="moreNews"
                                                        jcr:mixinTypes="jmix:renderable"
                                                        jcr:primaryType="rfnnt:epRfnLink">
@@ -91,12 +85,6 @@
                                                               j:skin="skins.custom"
                                                               jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                                               jcr:primaryType="jnt:contentList">
-                                                    <admin-members-left-news j:view="homeLeft"
-                                                                      jcr:mixinTypes="jmix:renderable"
-                                                                      jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
-                                                    <admin-members-right-news j:view="homeRight"
-                                                              jcr:mixinTypes="jmix:renderable"
-                                                              jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
                                                     <more-admin-members-news j:view="moreNews"
                                                                       jcr:mixinTypes="jmix:renderable"
                                                                       jcr:primaryType="rfnnt:epRfnLink">
@@ -111,12 +99,6 @@
                                                                 j:skin="skins.custom"
                                                                 jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                                                 jcr:primaryType="jnt:contentList">
-                                                    <admin-officials-left-news j:view="homeLeft"
-                                                               jcr:mixinTypes="jmix:renderable"
-                                                               jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
-                                                    <admin-officials-right-news j:view="homeRight"
-                                                                jcr:mixinTypes="jmix:renderable"
-                                                                jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
                                                     <more-admin-officials-news j:view="moreNews"
                                                                jcr:mixinTypes="jmix:renderable"
                                                                jcr:primaryType="rfnnt:epRfnLink">
@@ -139,12 +121,6 @@
                                             <practical-title-area j:allowedTypes="rfnnt:epRfnTitle"
                                                     j:numberOfItems="1"
                                                     jcr:primaryType="jnt:absoluteArea"/>
-                                            <practical-left-news j:view="homeLeft"
-                                                   jcr:mixinTypes="jmix:renderable"
-                                                   jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
-                                            <practical-right-news j:view="homeRight"
-                                                    jcr:mixinTypes="jmix:renderable"
-                                                    jcr:primaryType="rfnnt:epRfnNewsSearchResults"/>
                                             <more-practical-news j:view="moreNews"
                                                    jcr:mixinTypes="jmix:renderable"
                                                    jcr:primaryType="rfnnt:epRfnLink">
@@ -369,32 +345,6 @@
                                           jcr:primaryType="jnt:translation"
                                           jcr:title="News List"/>
                                 </news-list>
-                                <news j:applyOn="rfnnt:epRfnNews"
-                           j:defaultTemplate="true"
-                           j:hiddenTemplate="false"
-                           j:invertCondition="false"
-                           j:requireLoggedUser="false"
-                           j:requirePrivilegedUser="false"
-                           j:requiredPermissionNames=""
-                           jcr:primaryType="jnt:contentTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="News"/>
-                                    <content-area jcr:primaryType="jnt:contentList">
-                                        <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
-                                    </content-area>
-                                </news>
-                                <event j:applyOn="rfnnt:epRfnEvent"
-                            j:defaultTemplate="true"
-                            j:hiddenTemplate="false"
-                            jcr:primaryType="jnt:contentTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Event"/>
-                                    <content-area jcr:primaryType="jnt:contentList">
-                                        <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
-                                    </content-area>
-                                </event>
                             </rubric>
                             <sitemap j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
                                 <j:translation_en jcr:language="en"
@@ -507,15 +457,6 @@
                                       j:numberOfItems="1"
                                       jcr:primaryType="jnt:absoluteArea"/>
                             </header-image-area>
-                            <faq j:applyOn="rfnnt:epRfnFaq"
-                       j:defaultTemplate="true"
-                       j:hiddenTemplate="false"
-                       jcr:primaryType="jnt:contentTemplate">
-                                <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" jcr:title="FAQ"/>
-                                <faq-content-area jcr:primaryType="jnt:contentList">
-                                    <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
-                                </faq-content-area>
-                            </faq>
                         </faq-generic>
                 </base>
                     <content-template j:applyOn="jnt:content"

@@ -44,7 +44,7 @@
                                              jscal2.css,
                                              refin_eventcalendar.css,
                                              bootstrap.css,
-                                             main.less"/>
+                                             main.css"/>
   
 <template:addResources type="javascript" resources="html5shiv.js,respond.min.js" condition="if lt IE 9" />
 

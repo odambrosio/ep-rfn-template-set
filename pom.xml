@@ -111,7 +111,7 @@
         <configuration>
           <instructions>
             <Jahia-Module-Type>templatesSet</Jahia-Module-Type>
-            <Jahia-Depends>bootstrap3-components,bootstrap3-core,default,ep-rfn-content,ep-rfn-event,ep-rfn-faq,ep-rfn-navigation,ep-rfn-news,ep-rfn-search,default-skins,search,skins</Jahia-Depends>
+            <Jahia-Depends>bootstrap3-components,bootstrap3-core,default,ep-rfn-content,ep-rfn-navigation,default-skins,search,skins</Jahia-Depends>
           </instructions>
         </configuration>
       </plugin>
