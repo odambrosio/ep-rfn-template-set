@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <ep-rfn-template-set j:dependencies="bootstrap3-components bootstrap3-core default default-skins ep-rfn-content ep-rfn-navigation search skins"
+        <ep-rfn-template-set j:dependencies="bootstrap3-components bootstrap3-core default default-skins ep-rfn-content ep-rfn-event ep-rfn-faq ep-rfn-navigation ep-rfn-news ep-rfn-theme facets search skins"
                            j:installedModules="ep-rfn-template-set"
                            j:modulePriority="0"
                            j:moduleType="templatesSet"
@@ -38,8 +38,11 @@
                                       jcr:primaryType="rfnnt:epRfnMenu"
                                       startNode="/modules/ep-rfn-template-set/home"/>
                                     </row-content1-col0>
-                                    <row-content1-col2 jcr:primaryType="jnt:contentList">
-                                        <content-right-column-area j:allowedTypes="rfnnt:epRfnEventSearchForm rfnnt:epRfnImageLink"
+                                    <row-content1-col2 j:id="tools"
+                                           j:skin="skins.custom"
+                                           jcr:mixinTypes="jmix:customSkin jmix:skinnable"
+                                           jcr:primaryType="jnt:contentList">
+                                        <content-right-column-area j:allowedTypes="rfnnt:epRfnImageLink"
                                                       jcr:primaryType="jnt:absoluteArea"/>
                                     </row-content1-col2>
                                     <row-content1-col1 jcr:primaryType="jnt:contentList">
@@ -167,8 +170,9 @@
                                               jcr:primaryType="jnt:area"/>
                                     </row-header1-col1>
                                     <row-header1-col2 jcr:primaryType="jnt:contentList">
-                                        <header-links-area j:id="tools-header"
-                                              j:numberOfItems="1"
+                                        <header-links-area j:allowedTypes="rfnnt:epRfnLink"
+                                              j:id="tools-header"
+                                              j:numberOfItems="5"
                                               j:skin="skins.custom"
                                               jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                               jcr:primaryType="jnt:absoluteArea"/>
@@ -181,7 +185,7 @@
                                 </row-header1>
                                 <row-header2 activeContainer="false"
                                   columnsType="customColumns"
-                                  gridClasses="col-xs-4 col-sm-4 col-md-4 col-lg-4,col-xs-8 col-sm-8 col-md-8 col-lg-8,col-xs-4 col-sm-4 col-md-4 col-lg-4 text-right"
+                                  gridClasses="col-xs-4 col-sm-4 col-md-3 col-lg-3,col-xs-8 col-sm-8 col-md-9 col-lg-10,col-xs-4 col-sm-4 col-md-4 col-lg-3 text-right"
                                   gridLayout="fixed-width"
                                   jcr:mixinTypes="bootstrap3mix:advancedColumnProperties bootstrap3mix:customColumns"
                                   jcr:primaryType="bootstrap3nt:columns"
@@ -193,10 +197,15 @@
                                     </row-header2-col2>
                                     <row-header2-col1 jcr:primaryType="jnt:contentList">
                                         <header-alert-area j:allowedTypes="jnt:text"
+                                              j:classname="header-alert"
                                               j:numberOfItems="1"
+                                              j:skin="skins.custom"
+                                              jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                               jcr:primaryType="jnt:absoluteArea"/>
                                     </row-header2-col1>
-                                    <row-header2-col0 jcr:primaryType="jnt:contentList"/>
+                                    <row-header2-col0 jcr:primaryType="jnt:contentList">
+                                        <header-today-date jcr:primaryType="rfnnt:epRfnTodayDate"/>
+                                    </row-header2-col0>
                                 </row-header2>
                                 <row-header3 activeContainer="false"
                                   columnsType="customColumns"
@@ -207,12 +216,7 @@
                                   sectionCssClass="row header3"
                                   sectionElement="div">
                                     <row-header3-col0 jcr:primaryType="jnt:contentList">
-                                        <top-navigation-menu jcr:primaryType="rfnnt:epRfnTopNavigationMenu">
-                                            <j:translation_en jcr:language="en"
-                                                jcr:mixinTypes="mix:title"
-                                                jcr:primaryType="jnt:translation"
-                                                jcr:title="Top navigation menu"/>
-                                        </top-navigation-menu>
+                                        <header-top-navigation-menu jcr:primaryType="rfnnt:epRfnTopNavigationMenu"/>
                                     </row-header3-col0>
                                 </row-header3>
                             </header>
@@ -245,7 +249,7 @@
                                                   jcr:primaryType="jnt:absoluteArea"/>
                                     </row-footer1-col0>
                                     <row-footer1-col1 jcr:primaryType="jnt:contentList">
-                                        <footer-links-area jcr:primaryType="jnt:absoluteArea"/>
+                                        <footer-links-area j:allowedTypes="rfnnt:epRfnLink" jcr:primaryType="jnt:absoluteArea"/>
                                     </row-footer1-col1>
                                 </row-footer1>
                             </footer>
@@ -288,7 +292,7 @@
                                                j:skin="skins.custom"
                                                jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                                jcr:primaryType="jnt:area"/>
-                                        <content-area j:classname="content"
+                                        <content-area j:id="content"
                                          j:skin="skins.custom"
                                          jcr:mixinTypes="jmix:customSkin jmix:skinnable"
                                          jcr:primaryType="jnt:area"/>
@@ -315,36 +319,10 @@
                                                 j:numberOfItems="1"
                                                 jcr:primaryType="jnt:absoluteArea"/>
                                 </header-image-area>
-                                <section j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Section"/>
-                                </section>
-                                <subject j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Subject"/>
-                                </subject>
-                                <theme j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Theme"/>
-                                </theme>
-                                <event-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Event List"/>
-                                </event-list>
-                                <news-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                                    <j:translation_en jcr:language="en"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="News List"/>
-                                </news-list>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <rubric-area j:allowedTypes="rfnnt:epRfnSection rfnnt:epRfnTheme"
+                                     jcr:primaryType="jnt:area"/>
+                                </content-area>
                             </rubric>
                             <sitemap j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
                                 <j:translation_en jcr:language="en"
@@ -352,6 +330,132 @@
                                        jcr:primaryType="jnt:translation"
                                        jcr:title="Sitemap"/>
                             </sitemap>
+                            <event-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Event List"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <event-area j:allowedTypes="rfnnt:epRfnEvent" jcr:primaryType="jnt:area"/>
+                                    <facets-list j:bindedComponent="/modules/ep-rfn-template-set/templates/base/generic/event-list/content-area/event-area"
+                                     j:type="rfnnt:epRfnEvent"
+                                     jcr:primaryType="jnt:facets">
+                                        <upcomingEvents facet="upcomingEvents"
+                                           jcr:primaryType="jnt:queryFacet"
+                                           mincount="1"
+                                           query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:primaryType="jnt:translation"
+                                                label="All upcoming events"
+                                                valueLabel="All upcoming events"/>
+                                        </upcomingEvents>
+                                        <todayEvents facet="todayEvents"
+                                        jcr:primaryType="jnt:queryFacet"
+                                        mincount="1"
+                                        query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" label="Today"/>
+                                        </todayEvents>
+                                        <tomorrowEvents facet="tomorrowEvents"
+                                           jcr:primaryType="jnt:queryFacet"
+                                           mincount="1"
+                                           query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:primaryType="jnt:translation"
+                                                label="Tomorrow"/>
+                                        </tomorrowEvents>
+                                        <thisWeekEvents facet="thisWeekEvents"
+                                           jcr:primaryType="jnt:queryFacet"
+                                           mincount="1"
+                                           query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:primaryType="jnt:translation"
+                                                label="This week"/>
+                                        </thisWeekEvents>
+                                        <nextWeekEvents facet="nextWeekEvents"
+                                           jcr:primaryType="jnt:queryFacet"
+                                           mincount="1"
+                                           query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:primaryType="jnt:translation"
+                                                label="Next week"/>
+                                        </nextWeekEvents>
+                                        <next31daysEvents facet="next31daysEvents"
+                                             jcr:primaryType="jnt:queryFacet"
+                                             mincount="1"
+                                             query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                            <j:translation_en jcr:language="en"
+                                                jcr:primaryType="jnt:translation"
+                                                label="Next 31 days"/>
+                                        </next31daysEvents>
+                                    </facets-list>
+                                </content-area>
+                            </event-list>
+                            <news-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="News List"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <news-area j:allowedTypes="rfnnt:epRfnNews"
+                                   j:subNodesView="inList"
+                                   jcr:primaryType="jnt:area"/>
+                                    <pager displayNbOfItemsPerPage="true"
+                               displayNbOfItemsPerPageValues="5,10,25,50,100"
+                               displayPager="true"
+                               j:bindedComponent="/modules/ep-rfn-template-set/templates/base/generic/news-list/content-area/news-area"
+                               jcr:primaryType="jnt:pager"
+                               nbOfPages="50"
+                               pageSize="10"/>
+                                </content-area>
+                            </news-list>
+                            <section j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Section"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <section-area j:allowedTypes="rfnnt:epRfnSubject" jcr:primaryType="jnt:area"/>
+                                </content-area>
+                            </section>
+                            <subject j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Subject"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <subject-area j:allowedTypes="jnt:portletReference rfnnt:epRfnRubric rfnnt:epRfnSection rfnnt:epRfnSubject rfnnt:epRfnTheme"
+                                      jcr:primaryType="jnt:area"/>
+                                </content-area>
+                            </subject>
+                            <news-details j:applyOn="rfnnt:epRfnNews"
+                                j:defaultTemplate="true"
+                                j:hiddenTemplate="false"
+                                j:invertCondition="false"
+                                j:priority="10"
+                                j:requireLoggedUser="false"
+                                j:requirePrivilegedUser="false"
+                                jcr:primaryType="jnt:contentTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="News details"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+                                </content-area>
+                            </news-details>
+                            <event-details j:applyOn="rfnnt:epRfnEvent"
+                                 j:defaultTemplate="true"
+                                 j:hiddenTemplate="false"
+                                 j:priority="10"
+                                 jcr:primaryType="jnt:contentTemplate">
+                                <j:translation_en jcr:language="en"
+                                       jcr:mixinTypes="mix:title"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Event details"/>
+                                <content-area jcr:primaryType="jnt:contentList">
+                                    <main-resource-display j:mainResourceView="default" jcr:primaryType="jnt:mainResourceDisplay"/>
+                                </content-area>
+                            </event-details>
                         </generic>
                         <j:translation_en jcr:language="en"
                                  jcr:mixinTypes="mix:title"
