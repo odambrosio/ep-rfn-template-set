@@ -336,7 +336,9 @@
                                        jcr:primaryType="jnt:translation"
                                        jcr:title="Event List"/>
                                 <content-area jcr:primaryType="jnt:contentList">
-                                    <event-area j:allowedTypes="rfnnt:epRfnEvent" jcr:primaryType="jnt:area"/>
+                                    <event-area j:allowedTypes="rfnnt:epRfnEvent"
+                                    j:subNodesView="inList"
+                                    jcr:primaryType="jnt:area"/>
                                     <facets-list j:bindedComponent="/modules/ep-rfn-template-set/templates/base/generic/event-list/content-area/event-area"
                                      j:type="rfnnt:epRfnEvent"
                                      jcr:primaryType="jnt:facets">
@@ -562,6 +564,68 @@
                                       jcr:primaryType="jnt:absoluteArea"/>
                             </header-image-area>
                         </faq-generic>
+                        <event-list j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Event List"/>
+                            <content-area jcr:primaryType="jnt:contentList">
+                                <event-area j:allowedTypes="rfnnt:epRfnEvent"
+                                 j:subNodesView="inList"
+                                 jcr:primaryType="jnt:area"/>
+                                <facets-list j:bindedComponent="/modules/ep-rfn-template-set/templates/base/event-list/content-area/event-area"
+                                  j:type="rfnnt:epRfnEvent"
+                                  jcr:primaryType="jnt:facets">
+                                    <upcomingEvents facet="upcomingEvents"
+                                        jcr:primaryType="jnt:queryFacet"
+                                        mincount="1"
+                                        query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="All upcoming events"
+                                             valueLabel="All upcoming events"/>
+                                    </upcomingEvents>
+                                    <todayEvents facet="todayEvents"
+                                     jcr:primaryType="jnt:queryFacet"
+                                     mincount="1"
+                                     query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en" jcr:primaryType="jnt:translation" label="Today"/>
+                                    </todayEvents>
+                                    <tomorrowEvents facet="tomorrowEvents"
+                                        jcr:primaryType="jnt:queryFacet"
+                                        mincount="1"
+                                        query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Tomorrow"/>
+                                    </tomorrowEvents>
+                                    <thisWeekEvents facet="thisWeekEvents"
+                                        jcr:primaryType="jnt:queryFacet"
+                                        mincount="1"
+                                        query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="This week"/>
+                                    </thisWeekEvents>
+                                    <nextWeekEvents facet="nextWeekEvents"
+                                        jcr:primaryType="jnt:queryFacet"
+                                        mincount="1"
+                                        query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next week"/>
+                                    </nextWeekEvents>
+                                    <next31daysEvents facet="next31daysEvents"
+                                          jcr:primaryType="jnt:queryFacet"
+                                          mincount="1"
+                                          query="0\:FACET\:startDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND] OR 0\:FACET\:endDate:[NOW/DAY TO NOW/MONTH+1MONTH-1SECOND]">
+                                        <j:translation_en jcr:language="en"
+                                             jcr:primaryType="jnt:translation"
+                                             label="Next 31 days"/>
+                                    </next31daysEvents>
+                                </facets-list>
+                            </content-area>
+                        </event-list>
                 </base>
                     <content-template j:applyOn="jnt:content"
                               j:hiddenTemplate="true"
